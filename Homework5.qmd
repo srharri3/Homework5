@@ -1,0 +1,51 @@
+
+```{r}
+library(dplyr)
+library(tidyverse)
+library(DBI)
+```
+
+Reading in the data and combining the data frames using the code provided.
+```{r}
+d1 =read.table("student-mat.csv",sep=";",header=TRUE)
+d2 =read.table("student-por.csv",sep=";",header=TRUE)
+
+d3=merge(d1,d2,by=c("school","sex","age","address","famsize","Pstatus","Medu","Fedu","Mjob","Fjob","reason","nursery","internet"))
+print(nrow(d3)) # 382 students
+```
+
+Reading in the data and combining using functions from the tidyverse. It gives me a message "Warning: Detected an unexpected many-to-many relationship between `x` and `y`."
+```{r}
+mat2 <- read.csv("student-mat.csv", sep = ";", header = TRUE)
+por2 <- read.csv("student-por.csv", sep = ";", header = TRUE)
+
+combined <- inner_join(mat2, por2, by=c("school","sex","age","address","famsize","Pstatus","Medu","Fedu","Mjob","Fjob","reason","nursery","internet"))
+```
+
+Using an inner_join() on all variables other than G1, G2, G3, paid, and absences. 
+```{r}
+join_exclusions <- setdiff(colnames(mat2), c("G1", "G2", "G3", "paid", "absences"))
+exercise_combine <- inner_join(mat2, por2, by = join_exclusions)
+```
+
+Next, for the math data, Portuguese, and combined data, choosing four categorical variables of interest and converting those into factor variables in each tibble using the mutate() function.
+```{r}
+mat2 <- mat2 |>
+  mutate(romantic = as.factor(romantic),
+         internet = as.factor(internet),
+         famsup = as.factor(famsup),
+         activities = as.factor(activities))
+
+por2 <- por2 |>
+  mutate(romantic = as.factor(romantic),
+         internet = as.factor(internet),
+         famsup = as.factor(famsup),
+         activities = as.factor(activities))
+
+exercise_combine <- exercise_combine |>
+  mutate(romantic = as.factor(romantic),
+         internet = as.factor(internet),
+         famsup = as.factor(famsup),
+         activities = as.factor(activities))
+```
+
