@@ -32,21 +32,21 @@ Next, for the math data, Portuguese, and combined data, choosing four categorica
 ```{r}
 mat2 <- mat2 |>
   mutate(romantic = as.factor(romantic),
-         internet = as.factor(internet),
+         guardian = as.factor(guardian),
          famsup = as.factor(famsup),
-         activities = as.factor(activities))
+         reason = as.factor(reason))
 
 por2 <- por2 |>
   mutate(romantic = as.factor(romantic),
-         internet = as.factor(internet),
+         guardian = as.factor(guardian),
          famsup = as.factor(famsup),
-         activities = as.factor(activities))
+         reason = as.factor(reason))
 
 exercise_combine <- exercise_combine |>
   mutate(romantic = as.factor(romantic),
-         internet = as.factor(internet),
+         guardian = as.factor(guardian),
          famsup = as.factor(famsup),
-         activities = as.factor(activities))
+         reason = as.factor(reason))
 ```
 
 Looking at how the data is stored.
@@ -72,12 +72,12 @@ one_way
 
 Creating a two-way contingency table. From this, we can see that 
 ```{r}
-two_way <- table(exercise_combine$romantic, exercise_combine$activities)
+two_way <- table(exercise_combine$romantic, exercise_combine$reason)
 two_way
 ```
 Creating a three-way contigency table. From this we gather that 
 ```{r}
-three_way <- table(exercise_combine$romantic, exercise_combine$activities, exercise_combine$internet)
+three_way <- table(exercise_combine$romantic, exercise_combine$reason, exercise_combine$guardian)
 three_way
 ```
 
@@ -85,25 +85,89 @@ Creating a conditional two-way table using table() by subsetting the data by fem
 ```{r}
 sex_filter <- filter(exercise_combine, sex == "F")
 
-female_table <- table(sex_filter$romantic, sex_filter$activities)
+female_table <- table(sex_filter$romantic, sex_filter$guardian)
 female_table
 ```
 
 Create a conditional two-way table using table() by creating a three-way table and subsetting it.
 ```{r}
-subset_table <- table(exercise_combine$romantic, exercise_combine$activities, exercise_combine$famsup)
-subset_table
+subset_table <- table(exercise_combine$romantic, exercise_combine$guardian, exercise_combine$reason)
 
-subset_guardian_table <- subset_table[1,,]
-subset_guardian_table
+filter_subset_table <- subset_table[,"mother",]
+filter_subset_table
 ```
 
 Creating a two-way contingency table using group_by() and summarize().
 ```{r}
 exercise_combine |>
-  group_by(romantic, activities) |>
-  drop_na(romantic, activities) |>
+  group_by(romantic, reason) |>
+  drop_na(romantic, reason) |>
   summarize(count = n()) |>
-  pivot_wider(names_from = activities, values_from = count)
+  pivot_wider(names_from = reason, values_from = count)
+```
+Create stacked bar graph.
+```{r}
+stacked <- ggplot(data = exercise_combine |> drop_na(sex, famsup), aes(x = sex, fill = famsup)) 
+stacked + geom_bar() + labs(x = "Sex", y = "Family Educational Support")
+```
+
+Create side-by-side bar graph
+```{r}
+side <- ggplot(data = exercise_combine |> drop_na(school, reason), aes(x = school, fill = reason)) + geom_bar(position = "dodge") + labs(x = "School", y = "Reason") + scale_fill_discrete("Reason")
+side
+```
+
+# Numeric Variables (and across groups)
+```{r}
+exercise_combine |>
+  summarize(mean_age = mean(age),
+            median_age = median(age),
+            mean_absences = mean(absences.x),
+            median_absences = median(absences.x),
+            mean_G1 = mean(G1.x),
+            median_G1 = median(G1.x))
+```
+
+```{r}
+exercise_combine |>
+  filter(sex == "F") |>
+   summarize(mean_age = mean(age),
+            median_age = median(age),
+            mean_absences = mean(absences.x),
+            median_absences = median(absences.x),
+            mean_G1 = mean(G1.x),
+            median_G1 = median(G1.x))
+  
+```
+```{r}
+exercise_combine |>
+  group_by(sex) |>
+   summarize(mean_age = mean(age),
+            median_age = median(age),
+            mean_absences = mean(absences.x),
+            median_absences = median(absences.x),
+            mean_G1 = mean(G3.x),
+            median_G1 = median(G3.x))
+```
+
+```{r}
+exercise_combine |>
+  group_by(sex,school) |>
+   summarize(mean_age = mean(age),
+            median_age = median(age),
+            mean_absences = mean(absences.x),
+            median_absences = median(absences.x),
+            mean_G1 = mean(G3.x),
+            median_G1 = median(G3.x))
+```
+
+```{r}
+numeric_variables <- exercise_combine[, sapply(exercise_combine, is.numeric)]
+numeric_variables
+```
+
+```{r}
+correlation_matrix <- cor(numeric_variables)
+correlation_matrix
 ```
 
