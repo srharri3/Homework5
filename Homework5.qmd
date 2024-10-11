@@ -108,12 +108,12 @@ exercise_combine |>
 Create stacked bar graph.
 ```{r}
 stacked <- ggplot(data = exercise_combine |> drop_na(sex, famsup), aes(x = sex, fill = famsup)) 
-stacked + geom_bar() + labs(x = "Sex", y = "Family Educational Support")
+stacked + geom_bar() + labs(title = "Stacked Bar Graph of Family Educational Support by Sex", x = "Sex", y = "Family Educational Support")
 ```
 
 Create side-by-side bar graph
 ```{r}
-side <- ggplot(data = exercise_combine |> drop_na(school, reason), aes(x = school, fill = reason)) + geom_bar(position = "dodge") + labs(x = "School", y = "Reason") + scale_fill_discrete("Reason")
+side <- ggplot(data = exercise_combine |> drop_na(school, reason), aes(x = school, fill = reason)) + geom_bar(position = "dodge") + labs( title = "Side-By-Side Bar Graph of Reason by School", x = "School", y = "Reason") + scale_fill_discrete("Reason")
 side
 ```
 
@@ -169,5 +169,51 @@ numeric_variables
 ```{r}
 correlation_matrix <- cor(numeric_variables)
 correlation_matrix
+```
+
+Histogram of Age by Sex
+```{r}
+histogram_age <- ggplot(exercise_combine, aes(x = age)) + geom_histogram(aes(fill = sex)) + labs(title = "Histogram of Age by Sex")
+histogram_age
+```
+
+Kernel density plot
+```{r}
+kernel_age <- ggplot(exercise_combine, aes(x = age)) + geom_density(alpha = 0.5, aes(fill = sex)) + labs(title = "Kernel Density Plot of Age by Sex")
+kernel_age
+```
+
+Age boxplot
+```{r}
+boxplot_age <- ggplot(exercise_combine, aes(x = sex, y = age, fill = sex)) + geom_boxplot() + labs(title = "Boxplot of Age by Sex", x = "Sex", y = "Age")
+boxplot_age
+```
+Histogram of
+```{r}
+histogram_absences <- ggplot(exercise_combine, aes(x = absences.x)) + geom_histogram(aes(fill = sex)) + labs(title = "Histogram of Absences by Sex")
+histogram_absences
+```
+
+Kernel Density Plot of 
+```{r}
+kernel_absences <- ggplot(exercise_combine, aes(x = absences.x)) + geom_density(alpha = 0.5, aes(fill = sex)) + labs(title = "Kernel Density Plot of Absences by Sex")
+kernel_absences
+```
+
+Boxplot of 
+```{r}
+boxplot_absences <- ggplot(exercise_combine, aes(x = sex, y = absences.x, fill = sex)) + geom_boxplot() + labs(title = "Boxplot of Absences by Sex", x = "Sex", y = "Absences")
+boxplot_absences
+```
+
+Scatterplot relating G3 variable to other numeric variables
+```{r}
+scatterplot_G3 <- ggplot(exercise_combine, aes(x = age, y = G3.x, color = sex)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Age by Sex", x = "Age", y = "G3")
+scatterplot_G3 
+```
+
+```{r}
+scatterplot_G3 <- ggplot(exercise_combine, aes(x = failures, y = G3.x, color = school)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Failures by School", x = "Failures", y = "G3")
+scatterplot_G3 
 ```
 
