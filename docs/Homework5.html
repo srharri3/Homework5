@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>homework5</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="savannah-harrison---homework-5" class="level1">
+<h1>Savannah Harrison - Homework 5</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.0     ✔ readr     2.1.5
+✔ ggplot2   3.5.1     ✔ stringr   1.5.1
+✔ lubridate 1.9.3     ✔ tibble    3.2.1
+✔ purrr     1.0.2     ✔ tidyr     1.3.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="task-1-read-in-the-data-and-modify" class="level1">
+<h1>Task 1: Read in the Data and Modify</h1>
+<p>Reading in the data and combining the data frames using the code provided.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">=</span><span class="fu">read.table</span>(<span class="st">"student-mat.csv"</span>,<span class="at">sep=</span><span class="st">";"</span>,<span class="at">header=</span><span class="cn">TRUE</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">=</span><span class="fu">read.table</span>(<span class="st">"student-por.csv"</span>,<span class="at">sep=</span><span class="st">";"</span>,<span class="at">header=</span><span class="cn">TRUE</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>d3<span class="ot">=</span><span class="fu">merge</span>(d1,d2,<span class="at">by=</span><span class="fu">c</span>(<span class="st">"school"</span>,<span class="st">"sex"</span>,<span class="st">"age"</span>,<span class="st">"address"</span>,<span class="st">"famsize"</span>,<span class="st">"Pstatus"</span>,<span class="st">"Medu"</span>,<span class="st">"Fedu"</span>,<span class="st">"Mjob"</span>,<span class="st">"Fjob"</span>,<span class="st">"reason"</span>,<span class="st">"nursery"</span>,<span class="st">"internet"</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">nrow</span>(d3)) <span class="co"># 382 students</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 382</code></pre>
+</div>
+</div>
+<p>Reading in the data and combining using functions from the tidyverse. It gives me a message “Warning: Detected an unexpected many-to-many relationship between <code>x</code> and <code>y</code>.”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mat2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"student-mat.csv"</span>, <span class="at">sep =</span> <span class="st">";"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>por2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"student-por.csv"</span>, <span class="at">sep =</span> <span class="st">";"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>combined <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(mat2, por2, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"school"</span>,<span class="st">"sex"</span>,<span class="st">"age"</span>,<span class="st">"address"</span>,<span class="st">"famsize"</span>,<span class="st">"Pstatus"</span>,<span class="st">"Medu"</span>,<span class="st">"Fedu"</span>,<span class="st">"Mjob"</span>,<span class="st">"Fjob"</span>,<span class="st">"reason"</span>,<span class="st">"nursery"</span>,<span class="st">"internet"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in inner_join(mat2, por2, by = c("school", "sex", "age", "address", : Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 79 of `x` matches multiple rows in `y`.
+ℹ Row 79 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.</code></pre>
+</div>
+</div>
+<p>Using an inner_join() on all variables other than G1, G2, G3, paid, and absences.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>join_exclusions <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="fu">colnames</span>(mat2), <span class="fu">c</span>(<span class="st">"G1"</span>, <span class="st">"G2"</span>, <span class="st">"G3"</span>, <span class="st">"paid"</span>, <span class="st">"absences"</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>exercise_combine <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(mat2, por2, <span class="at">by =</span> join_exclusions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, for the math data, Portuguese, and combined data, choosing four categorical variables of interest and converting those into factor variables in each tibble using the mutate() function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mat2 <span class="ot">&lt;-</span> mat2 <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">romantic =</span> <span class="fu">as.factor</span>(romantic),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">guardian =</span> <span class="fu">as.factor</span>(guardian),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">famsup =</span> <span class="fu">as.factor</span>(famsup),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">reason =</span> <span class="fu">as.factor</span>(reason))</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>por2 <span class="ot">&lt;-</span> por2 <span class="sc">|&gt;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">romantic =</span> <span class="fu">as.factor</span>(romantic),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">guardian =</span> <span class="fu">as.factor</span>(guardian),</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">famsup =</span> <span class="fu">as.factor</span>(famsup),</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">reason =</span> <span class="fu">as.factor</span>(reason))</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>exercise_combine <span class="ot">&lt;-</span> exercise_combine <span class="sc">|&gt;</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">romantic =</span> <span class="fu">as.factor</span>(romantic),</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">guardian =</span> <span class="fu">as.factor</span>(guardian),</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">famsup =</span> <span class="fu">as.factor</span>(famsup),</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">reason =</span> <span class="fu">as.factor</span>(reason))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Looking at how the data is stored.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(exercise_combine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   320 obs. of  38 variables:
+ $ school    : chr  "GP" "GP" "GP" "GP" ...
+ $ sex       : chr  "F" "F" "F" "F" ...
+ $ age       : int  18 17 15 16 16 16 17 15 15 15 ...
+ $ address   : chr  "U" "U" "U" "U" ...
+ $ famsize   : chr  "GT3" "GT3" "GT3" "GT3" ...
+ $ Pstatus   : chr  "A" "T" "T" "T" ...
+ $ Medu      : int  4 1 4 3 4 2 4 3 3 4 ...
+ $ Fedu      : int  4 1 2 3 3 2 4 2 4 4 ...
+ $ Mjob      : chr  "at_home" "at_home" "health" "other" ...
+ $ Fjob      : chr  "teacher" "other" "services" "other" ...
+ $ reason    : Factor w/ 4 levels "course","home",..: 1 1 2 2 4 2 2 2 2 4 ...
+ $ guardian  : Factor w/ 3 levels "father","mother",..: 2 1 2 1 2 2 2 2 2 2 ...
+ $ traveltime: int  2 1 1 1 1 1 2 1 1 1 ...
+ $ studytime : int  2 2 3 2 2 2 2 2 2 2 ...
+ $ failures  : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ schoolsup : chr  "yes" "no" "no" "no" ...
+ $ famsup    : Factor w/ 2 levels "no","yes": 1 2 2 2 2 1 2 2 2 2 ...
+ $ paid.x    : chr  "no" "no" "yes" "yes" ...
+ $ activities: chr  "no" "no" "yes" "no" ...
+ $ nursery   : chr  "yes" "no" "yes" "yes" ...
+ $ higher    : chr  "yes" "yes" "yes" "yes" ...
+ $ internet  : chr  "no" "yes" "yes" "no" ...
+ $ romantic  : Factor w/ 2 levels "no","yes": 1 1 2 1 1 1 1 1 1 1 ...
+ $ famrel    : int  4 5 3 4 5 4 4 4 5 3 ...
+ $ freetime  : int  3 3 2 3 4 4 1 2 5 3 ...
+ $ goout     : int  4 3 2 2 2 4 4 2 1 3 ...
+ $ Dalc      : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ Walc      : int  1 1 1 2 2 1 1 1 1 2 ...
+ $ health    : int  3 3 5 5 5 3 1 1 5 2 ...
+ $ absences.x: int  6 4 2 4 10 0 6 0 0 0 ...
+ $ G1.x      : int  5 5 15 6 15 12 6 16 14 10 ...
+ $ G2.x      : int  6 5 14 10 15 12 5 18 15 8 ...
+ $ G3.x      : int  6 6 15 10 15 11 6 19 15 9 ...
+ $ paid.y    : chr  "no" "no" "no" "no" ...
+ $ absences.y: int  4 2 0 0 6 0 2 0 0 2 ...
+ $ G1.y      : int  0 9 14 11 12 13 10 15 12 14 ...
+ $ G2.y      : int  11 11 14 13 12 12 13 16 12 14 ...
+ $ G3.y      : int  11 11 14 13 13 13 13 17 13 14 ...</code></pre>
+</div>
+</div>
+<p>Documenting missing values in the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sum_na <span class="ot">&lt;-</span> <span class="cf">function</span>(column) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="fu">is.na</span>(column))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>na_counts <span class="ot">&lt;-</span> exercise_combine <span class="sc">|&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), sum_na))</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>na_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  school sex age address famsize Pstatus Medu Fedu Mjob Fjob reason guardian
+1      0   0   0       0       0       0    0    0    0    0      0        0
+  traveltime studytime failures schoolsup famsup paid.x activities nursery
+1          0         0        0         0      0      0          0       0
+  higher internet romantic famrel freetime goout Dalc Walc health absences.x
+1      0        0        0      0        0     0    0    0      0          0
+  G1.x G2.x G3.x paid.y absences.y G1.y G2.y G3.y
+1    0    0    0      0          0    0    0    0</code></pre>
+</div>
+</div>
+</section>
+<section id="categorial-variables" class="level1">
+<h1>Categorial Variables</h1>
+<p>Creating a one-way contingency table. From this table we see that there are 221 people from the data set who are not in a romantic relationship, and 99 people who are.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>one_way <span class="ot">&lt;-</span> <span class="fu">table</span>(exercise_combine<span class="sc">$</span>romantic)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>one_way</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ no yes 
+221  99 </code></pre>
+</div>
+</div>
+<p>Creating a two-way contingency table. From this, we can see that there are 85 people who are not in a romantic relationship and chose their student’s school based on it being close to home.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>two_way <span class="ot">&lt;-</span> <span class="fu">table</span>(exercise_combine<span class="sc">$</span>romantic, exercise_combine<span class="sc">$</span>reason)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>two_way</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     
+      course home other reputation
+  no      85   58    15         63
+  yes     33   29    15         22</code></pre>
+</div>
+</div>
+<p>Creating a three-way contigency table. From this we gather that there are 5 fathers who are in romantic relationships and picked their student’s school based on its reputation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>three_way <span class="ot">&lt;-</span> <span class="fu">table</span>(exercise_combine<span class="sc">$</span>romantic, exercise_combine<span class="sc">$</span>reason, exercise_combine<span class="sc">$</span>guardian)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>three_way</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>, ,  = father
+
+     
+      course home other reputation
+  no      17   17     3         14
+  yes     10    5     3          5
+
+, ,  = mother
+
+     
+      course home other reputation
+  no      68   40    11         47
+  yes     22   20    12         17
+
+, ,  = other
+
+     
+      course home other reputation
+  no       0    1     1          2
+  yes      1    4     0          0</code></pre>
+</div>
+</div>
+<p>Creating a conditional two-way table using table() by subsetting the data by females and then creating the table. We can see here that there are 16 females in the dataset that are in romantic relationships that chose their student’s school based on its proximity to their home.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>female_filter <span class="ot">&lt;-</span> <span class="fu">filter</span>(exercise_combine, sex <span class="sc">==</span> <span class="st">"F"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>female_table <span class="ot">&lt;-</span> <span class="fu">table</span>(female_filter<span class="sc">$</span>romantic, female_filter<span class="sc">$</span>reason)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>female_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     
+      course home other reputation
+  no      44   25     9         38
+  yes     21   16     6         15</code></pre>
+</div>
+</div>
+<p>Create a conditional two-way table using table() by creating a three-way table and subsetting it. From this we see that there are 47 mothers who aren’t in romantic relationships and chose their student’s school based on its reputation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>subset_table <span class="ot">&lt;-</span> <span class="fu">table</span>(exercise_combine<span class="sc">$</span>romantic, exercise_combine<span class="sc">$</span>guardian, exercise_combine<span class="sc">$</span>reason)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>filter_subset_table <span class="ot">&lt;-</span> subset_table[,<span class="st">"mother"</span>,]</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>filter_subset_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     
+      course home other reputation
+  no      68   40    11         47
+  yes     22   20    12         17</code></pre>
+</div>
+</div>
+<p>Creating a two-way contingency table using group_by() and summarize(). There are 15 people who aren’t in romantic relationships and chose their school based on a reason other than courses, proximity to home, and reputation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>exercise_combine <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(romantic, reason) <span class="sc">|&gt;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(romantic, reason) <span class="sc">|&gt;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> reason, <span class="at">values_from =</span> count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'romantic'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+# Groups:   romantic [2]
+  romantic course  home other reputation
+  &lt;fct&gt;     &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;int&gt;
+1 no           85    58    15         63
+2 yes          33    29    15         22</code></pre>
+</div>
+</div>
+<p>Create stacked bar graph.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>stacked <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> exercise_combine <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(sex, famsup), <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">fill =</span> famsup)) </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>stacked <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Stacked Bar Graph of Family Educational Support by Sex"</span>, <span class="at">x =</span> <span class="st">"Sex"</span>, <span class="at">y =</span> <span class="st">"Family Educational Support"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see from this graph that females receive more educational support from their family than males. There are more females than males included in the data.</p>
+<p>Create side-by-side bar graph</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>side <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> exercise_combine <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(school, reason), <span class="fu">aes</span>(<span class="at">x =</span> school, <span class="at">fill =</span> reason)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span> <span class="fu">labs</span>( <span class="at">title =</span> <span class="st">"Side-By-Side Bar Graph of Reason by School"</span>, <span class="at">x =</span> <span class="st">"School"</span>, <span class="at">y =</span> <span class="st">"Reason"</span>) <span class="sc">+</span> <span class="fu">scale_fill_discrete</span>(<span class="st">"Reason"</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>side</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We see from this graph that there are more people in the data who chose Gabriel Pereira (GP) than Mousinho da Silveira (MS). People were most likely to choose their school based on its course offerings for both schools. There is a greater proportion of people who chose their school based on its reputation for GP.</p>
+</section>
+<section id="numeric-variables-and-across-groups" class="level1">
+<h1>Numeric Variables (and across groups)</h1>
+<p>Finding measures of center and spread of three variables (age, absences, G1)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>exercise_combine <span class="sc">|&gt;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(age),</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_age =</span> <span class="fu">median</span>(age),</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_absences =</span> <span class="fu">mean</span>(absences.x),</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_absences =</span> <span class="fu">median</span>(absences.x),</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_G1 =</span> <span class="fu">mean</span>(G1.x),</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_G1 =</span> <span class="fu">median</span>(G1.x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  mean_age median_age mean_absences median_absences  mean_G1 median_G1
+1   16.525         16        5.4125               4 11.29063        11</code></pre>
+</div>
+</div>
+<p>Doing the same thing, but subsetting the data this time.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>exercise_combine <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"F"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(age),</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_age =</span> <span class="fu">median</span>(age),</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_absences =</span> <span class="fu">mean</span>(absences.x),</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_absences =</span> <span class="fu">median</span>(absences.x),</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_G1 =</span> <span class="fu">mean</span>(G1.x),</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_G1 =</span> <span class="fu">median</span>(G1.x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  mean_age median_age mean_absences median_absences  mean_G1 median_G1
+1 16.63218         17      5.781609               4 10.87356        10</code></pre>
+</div>
+</div>
+<p>Finding the measures of center and spread across a single grouping variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>exercise_combine <span class="sc">|&gt;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(age),</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_age =</span> <span class="fu">median</span>(age),</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_absences =</span> <span class="fu">mean</span>(absences.x),</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_absences =</span> <span class="fu">median</span>(absences.x),</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_G1 =</span> <span class="fu">mean</span>(G3.x),</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_G1 =</span> <span class="fu">median</span>(G3.x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  sex   mean_age median_age mean_absences median_absences mean_G1 median_G1
+  &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;           &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+1 F         16.6         17          5.78               4    10.4        11
+2 M         16.4         16          4.97               4    11.8        12</code></pre>
+</div>
+</div>
+<p>Finding the measures of center and spread across two grouping variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>exercise_combine <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex,school) <span class="sc">|&gt;</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(age),</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_age =</span> <span class="fu">median</span>(age),</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_absences =</span> <span class="fu">mean</span>(absences.x),</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_absences =</span> <span class="fu">median</span>(absences.x),</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_G1 =</span> <span class="fu">mean</span>(G3.x),</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_G1 =</span> <span class="fu">median</span>(G3.x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'sex'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 8
+# Groups:   sex [2]
+  sex   school mean_age median_age mean_absences median_absences mean_G1
+  &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;           &lt;dbl&gt;   &lt;dbl&gt;
+1 F     GP         16.5         16          6.12             4     10.5 
+2 F     MS         17.7         18          3.33             0     10.0 
+3 M     GP         16.3         16          5.10             4     12.0 
+4 M     MS         18           18          3.58             3.5    9.58
+# ℹ 1 more variable: median_G1 &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>Subsetting the data for numeric variables only.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>numeric_variables <span class="ot">&lt;-</span> exercise_combine[, <span class="fu">sapply</span>(exercise_combine, is.numeric)]</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>numeric_variables</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    age Medu Fedu traveltime studytime failures famrel freetime goout Dalc Walc
+1    18    4    4          2         2        0      4        3     4    1    1
+2    17    1    1          1         2        0      5        3     3    1    1
+3    15    4    2          1         3        0      3        2     2    1    1
+4    16    3    3          1         2        0      4        3     2    1    2
+5    16    4    3          1         2        0      5        4     2    1    2
+6    16    2    2          1         2        0      4        4     4    1    1
+7    17    4    4          2         2        0      4        1     4    1    1
+8    15    3    2          1         2        0      4        2     2    1    1
+9    15    3    4          1         2        0      5        5     1    1    1
+10   15    4    4          1         2        0      3        3     3    1    2
+11   15    2    1          3         3        0      5        2     2    1    1
+12   15    4    4          1         1        0      4        3     3    1    3
+13   15    4    3          2         2        0      5        4     3    1    2
+14   15    2    2          1         3        0      4        5     2    1    1
+15   16    4    4          1         1        0      4        4     4    1    2
+16   16    4    4          1         3        0      3        2     3    1    2
+17   16    3    3          3         2        0      5        3     2    1    1
+18   17    3    2          1         1        3      5        5     5    2    4
+19   16    4    3          1         1        0      3        1     3    1    3
+20   15    4    3          1         2        0      4        4     1    1    1
+21   15    4    4          1         1        0      5        4     2    1    1
+22   16    4    2          1         2        0      4        5     1    1    3
+23   16    2    2          2         2        0      5        4     4    2    4
+24   15    2    4          1         3        0      4        3     2    1    1
+25   15    2    2          1         1        0      4        2     2    1    2
+26   15    4    2          1         1        0      2        2     4    2    4
+27   16    3    4          1         2        0      5        3     3    1    1
+28   16    4    4          1         2        0      4        4     5    5    5
+29   15    4    4          1         2        0      5        4     2    3    4
+30   15    4    4          2         2        0      4        3     1    1    1
+31   15    4    3          1         2        0      4        5     2    1    1
+32   15    3    3          1         2        0      5        3     2    1    1
+33   16    3    2          1         1        0      5        4     3    1    1
+34   15    2    3          2         1        0      3        5     1    1    1
+35   15    4    3          1         3        0      5        4     3    1    1
+36   16    4    4          2         3        0      2        4     3    1    1
+37   15    3    4          1         3        0      4        3     2    1    1
+38   15    2    2          1         1        0      4        3     1    1    1
+39   15    4    4          1         1        0      5        4     3    2    4
+40   15    4    4          1         2        0      4        3     3    1    1
+41   15    2    2          1         1        0      5        4     1    1    1
+42   16    2    2          2         2        1      4        3     3    2    2
+43   15    4    3          1         2        0      5        2     2    1    1
+44   16    3    3          1         2        0      2        3     5    1    4
+45   16    4    3          1         4        0      4        2     2    1    1
+46   15    4    2          1         2        0      4        3     3    2    2
+47   16    2    2          3         2        0      4        3     3    2    3
+48   15    4    2          1         2        0      4        3     3    1    1
+49   15    4    4          1         1        0      3        3     4    2    3
+50   15    3    3          1         1        0      5        3     4    4    4
+51   16    2    1          1         2        0      5        3     4    1    1
+52   15    4    3          1         2        0      4        3     2    1    1
+53   15    4    4          1         2        0      3        2     2    1    1
+54   15    1    2          1         2        0      4        3     2    1    1
+55   16    4    2          1         2        0      4        2     3    1    1
+56   16    4    4          1         2        0      2        4     4    2    3
+57   16    1    1          4         1        0      5        5     5    5    5
+58   16    1    2          1         2        0      4        4     3    1    1
+59   16    4    3          1         3        0      3        4     4    2    4
+60   15    4    3          1         2        0      4        4     4    2    4
+61   16    4    3          3         2        0      5        4     3    1    2
+62   15    4    4          1         4        0      1        3     3    5    5
+63   16    3    1          1         4        0      4        3     3    1    2
+64   15    2    2          2         2        0      4        1     3    1    3
+65   15    3    1          2         4        0      4        4     2    2    3
+66   16    3    1          2         4        0      4        3     2    1    1
+67   15    4    2          1         4        0      3        3     3    1    1
+68   16    3    1          1         1        0      5        3     2    2    2
+69   16    3    3          1         2        0      4        3     3    2    4
+70   15    4    3          1         2        0      4        3     3    2    3
+71   15    4    0          2         4        0      3        4     3    1    1
+72   16    2    2          1         4        0      5        2     3    1    3
+73   17    2    1          2         1        3      4        5     1    1    1
+74   16    3    4          1         2        0      2        4     3    1    2
+75   15    2    3          1         1        0      3        2     2    1    3
+76   15    2    3          1         3        0      5        3     2    1    2
+77   15    3    2          1         2        0      4        4     4    1    1
+78   15    2    2          2         2        0      5        3     3    1    3
+79   15    1    1          1         2        0      4        3     2    2    3
+80   16    2    2          1         2        0      4        3     4    1    2
+81   15    4    2          1         3        0      5        3     3    1    3
+82   16    4    4          1         2        0      4        1     3    3    5
+83   16    3    3          1         3        0      4        3     3    1    3
+84   15    4    3          1         1        0      4        5     5    1    3
+85   16    3    1          1         2        0      3        3     3    2    3
+86   16    4    2          2         2        0      5        3     3    1    1
+87   15    2    2          1         4        0      4        3     4    1    1
+88   16    4    3          2         1        0      3        3     3    1    1
+89   16    2    1          1         2        0      4        3     5    1    1
+90   16    4    4          1         1        0      5        3     4    1    2
+91   16    4    3          1         3        0      5        3     5    1    1
+92   16    4    4          1         1        0      4        5     5    5    5
+93   16    4    4          1         3        0      4        4     3    1    1
+94   15    4    4          1         1        0      5        3     3    1    1
+95   15    3    2          2         2        0      4        3     5    1    1
+96   15    3    4          1         2        0      5        4     4    1    1
+97   15    3    3          1         4        0      4        3     3    1    1
+98   15    2    2          1         4        0      5        1     2    1    1
+99   16    3    3          1         3        0      5        3     3    1    1
+100  15    4    4          4         4        0      1        3     5    3    5
+101  16    4    4          1         3        0      5        4     5    1    1
+102  15    4    4          1         1        0      5        5     3    1    1
+103  16    2    2          1         2        1      3        1     2    1    1
+104  15    4    2          1         1        0      3        5     2    1    1
+105  15    2    1          1         2        0      5        4     2    1    1
+106  16    4    4          1         2        0      5        4     4    1    2
+107  15    4    4          2         2        0      4        4     3    1    1
+108  16    3    3          2         1        0      5        4     2    1    1
+109  17    1    3          3         2        1      5        2     4    1    4
+110  15    3    4          1         1        0      3        4     3    1    2
+111  15    1    2          1         2        0      3        2     3    1    2
+112  15    2    2          1         4        0      5        5     4    1    2
+113  16    2    4          2         2        0      4        2     2    1    2
+114  16    4    4          1         1        0      3        4     4    1    4
+115  16    2    2          1         2        0      5        4     4    1    1
+116  15    3    4          1         1        0      5        5     5    3    2
+117  15    3    4          1         2        0      5        3     2    1    1
+118  16    4    4          1         1        0      3        5     5    2    5
+119  15    1    1          3         1        0      4        3     3    1    2
+120  17    2    2          1         1        0      3        4     4    1    3
+121  16    3    4          1         1        0      3        2     1    1    4
+122  15    3    4          4         2        0      5        3     3    1    1
+123  15    4    4          1         3        0      4        3     3    1    1
+124  17    3    4          3         2        0      5        4     5    2    4
+125  15    4    4          2         1        0      4        3     2    1    1
+126  15    4    3          2         4        0      2        2     2    1    1
+127  15    4    4          1         3        0      4        2     2    1    1
+128  16    1    1          1         1        0      3        4     4    3    3
+129  15    1    1          1         2        0      4        4     2    1    2
+130  15    1    2          1         2        0      4        3     2    1    1
+131  16    4    4          1         1        0      3        3     2    2    1
+132  16    2    1          1         1        1      4        4     4    3    5
+133  17    4    4          1         1        0      4        2     1    1    1
+134  15    2    3          1         2        0      4        4     4    1    1
+135  18    1    1          3         1        3      5        2     5    1    5
+136  16    2    2          3         1        0      4        2     2    1    2
+137  16    3    3          1         2        1      4        5     5    4    4
+138  16    2    2          1         2        0      4        3     5    2    4
+139  16    4    2          1         2        0      4        2     3    1    1
+140  16    2    2          1         2        0      5        1     5    1    1
+141  16    4    4          1         2        0      4        4     2    1    1
+142  16    1    0          2         2        0      4        3     2    1    1
+143  17    4    4          1         2        0      4        4     4    1    3
+144  16    3    3          2         2        0      4        4     5    1    1
+145  17    4    3          2         2        0      4        4     4    4    4
+146  16    2    2          2         2        0      3        4     4    1    4
+147  17    3    3          1         2        0      4        3     4    1    4
+148  16    4    2          1         1        0      4        3     3    3    4
+149  17    4    3          1         2        0      5        2     3    1    1
+150  16    4    3          1         2        0      3        4     3    2    3
+151  16    3    3          1         2        0      4        2     3    1    2
+152  17    2    4          1         2        0      5        4     2    2    3
+153  17    3    3          1         2        0      5        3     3    2    3
+154  16    3    2          1         2        0      1        2     2    1    2
+155  17    3    3          1         2        0      4        3     4    2    3
+156  16    1    2          1         1        0      3        3     3    1    2
+157  16    2    1          1         2        0      4        2     3    1    2
+158  17    3    3          1         2        0      3        3     3    1    3
+159  17    1    2          1         2        0      3        1     3    1    5
+160  16    2    3          1         2        0      4        3     3    1    1
+161  17    1    1          1         2        0      5        3     3    1    1
+162  17    1    2          2         2        0      4        4     4    4    5
+163  16    3    3          1         1        0      4        3     2    3    4
+164  16    2    3          2         1        0      5        3     3    1    1
+165  17    2    4          1         2        0      4        3     2    1    1
+166  17    4    4          1         1        0      5        2     3    1    2
+167  16    3    3          3         1        0      3        3     4    3    5
+168  17    4    4          2         1        1      4        2     4    2    3
+169  16    4    4          1         2        0      4        5     2    1    2
+170  16    4    3          1         2        0      4        3     5    1    5
+171  16    2    3          1         2        0      4        4     3    1    3
+172  17    1    1          1         2        0      4        4     4    1    3
+173  17    2    2          1         1        0      5        3     2    1    2
+174  16    2    2          2         4        0      5        3     5    1    1
+175  17    3    4          1         3        1      4        4     3    3    4
+176  16    4    3          1         2        0      1        3     2    1    1
+177  16    1    1          2         1        0      4        3     2    1    4
+178  17    4    3          2         3        0      4        4     2    1    1
+179  19    3    3          1         4        0      4        3     3    1    2
+180  17    4    4          1         2        0      5        3     5    4    5
+181  16    2    2          1         2        0      3        3     4    1    1
+182  17    4    4          1         1        0      5        2     1    1    2
+183  17    3    2          2         2        0      4        4     4    1    3
+184  17    2    3          2         1        0      3        3     3    1    4
+185  17    2    2          1         3        0      4        3     3    1    1
+186  17    2    1          2         2        0      4        2     5    1    2
+187  16    2    3          1         2        0      2        3     1    1    1
+188  16    4    4          1         3        0      5        3     2    1    1
+189  17    3    2          1         2        0      5        3     4    1    3
+190  17    2    3          1         2        0      5        3     3    1    3
+191  18    2    1          4         2        0      4        3     2    4    5
+192  17    2    1          2         3        0      3        2     3    1    2
+193  17    4    3          1         2        0      3        2     3    1    2
+194  17    2    2          2         2        0      4        5     2    1    1
+195  17    4    4          1         2        0      4        5     5    1    3
+196  16    4    4          1         2        0      4        2     4    2    4
+197  16    1    1          2         2        0      3        4     2    1    1
+198  16    3    2          2         3        0      5        3     3    1    3
+199  17    2    2          1         2        0      4        4     2    5    5
+200  16    2    1          1         1        0      4        5     2    1    1
+201  17    2    1          3         2        0      2        1     1    1    1
+202  17    4    3          2         2        0      2        5     5    1    4
+203  17    4    4          2         2        0      3        3     3    2    3
+204  16    4    3          1         1        0      5        4     5    1    1
+205  16    4    4          1         1        0      5        3     2    1    2
+206  18    2    1          2         3        0      4        4     4    1    1
+207  16    2    1          3         1        0      4        3     3    1    1
+208  17    2    3          2         1        0      5        2     2    1    1
+209  22    3    1          1         1        3      5        4     5    5    5
+210  16    0    2          1         1        0      4        3     2    2    4
+211  16    2    1          2         1        0      3        3     2    1    3
+212  17    2    1          1         1        0      4        4     2    2    4
+213  17    1    1          2         1        1      4        4     4    1    2
+214  17    4    2          1         4        0      4        2     3    1    1
+215  19    4    3          1         2        0      4        3     1    1    1
+216  18    2    1          1         2        0      5        2     4    1    2
+217  17    2    2          1         4        0      3        4     1    1    1
+218  18    4    3          1         2        0      3        1     2    1    3
+219  18    4    3          1         2        0      4        3     2    1    1
+220  18    3    2          1         3        0      5        3     2    1    1
+221  17    3    3          1         3        0      3        2     3    1    1
+222  18    2    2          1         3        0      4        3     3    1    1
+223  18    3    4          2         2        0      4        2     5    3    4
+224  17    3    1          1         2        0      5        4     4    3    4
+225  18    4    4          2         2        0      4        3     4    2    2
+226  18    4    2          1         2        0      5        4     5    1    3
+227  18    2    1          2         2        0      4        3     5    1    2
+228  18    2    3          1         4        0      4        5     5    1    3
+229  18    1    1          2         2        0      4        4     3    1    1
+230  17    1    2          1         2        0      3        5     2    2    2
+231  17    2    4          2         2        0      4        3     3    1    1
+232  17    2    2          2         2        0      4        4     4    2    3
+233  18    3    2          2         2        0      4        1     1    1    1
+234  18    4    4          2         1        0      3        2     4    1    4
+235  18    4    4          1         2        1      2        4     4    1    1
+236  18    4    3          2         1        0      4        2     3    1    2
+237  17    4    1          2         1        0      4        5     4    2    4
+238  18    1    1          2         4        0      5        2     2    1    1
+239  18    1    1          2         2        0      5        4     4    1    1
+240  17    2    2          1         2        0      5        4     5    1    2
+241  17    1    1          1         2        0      4        3     3    1    2
+242  18    2    2          1         3        0      4        3     3    1    2
+243  17    1    1          1         3        0      4        3     3    1    1
+244  18    2    1          1         3        0      4        2     4    1    3
+245  18    4    4          1         2        0      5        4     3    1    1
+246  18    4    2          1         2        0      4        3     2    1    4
+247  17    4    3          1         3        0      4        2     2    1    2
+248  17    3    1          2         4        0      3        1     2    1    1
+249  18    3    2          2         3        0      5        4     2    1    1
+250  17    3    3          1         1        0      4        4     3    1    3
+251  19    4    4          2         2        0      2        3     4    2    3
+252  18    4    3          2         2        0      4        4     5    1    2
+253  18    4    3          1         4        0      4        3     3    1    1
+254  18    4    4          1         1        0      1        4     2    2    2
+255  18    4    4          1         2        0      4        2     4    1    1
+256  17    4    4          2         1        0      4        1     1    2    2
+257  17    4    2          2         3        0      4        3     3    1    1
+258  17    3    2          1         4        0      5        2     2    1    2
+259  18    2    1          2         2        0      5        3     3    1    2
+260  18    4    3          1         3        0      4        3     4    1    1
+261  17    3    4          1         3        0      4        3     4    2    5
+262  18    4    4          1         2        0      4        4     4    3    3
+263  17    4    3          1         2        0      5        2     2    1    2
+264  17    2    2          1         2        0      4        2     2    1    1
+265  17    2    2          1         3        0      3        3     2    2    2
+266  17    3    1          1         3        0      3        4     3    2    3
+267  17    0    2          2         3        0      3        3     3    2    3
+268  18    4    4          1         3        0      4        3     3    2    2
+269  17    3    3          1         1        0      4        3     5    3    5
+270  17    2    2          4         1        0      4        4     5    5    5
+271  17    4    4          1         3        0      5        4     4    1    3
+272  17    4    4          2         3        0      4        3     3    1    2
+273  18    2    2          1         4        0      4        5     5    2    4
+274  17    2    4          1         3        0      4        4     3    1    1
+275  18    3    3          1         2        0      5        3     4    1    1
+276  18    2    2          1         2        0      4        3     3    1    1
+277  18    2    2          2         4        0      4        4     4    1    1
+278  17    3    4          1         3        0      4        4     5    1    3
+279  17    3    2          1         2        0      4        3     2    2    3
+280  18    3    3          1         4        0      5        3     3    1    1
+281  17    3    2          1         2        0      4        3     3    2    3
+282  18    3    4          1         2        0      4        3     3    1    3
+283  18    2    3          1         3        0      4        3     3    1    2
+284  18    3    2          1         3        0      5        4     3    2    3
+285  18    4    3          1         3        0      5        3     2    1    2
+286  18    4    3          1         3        0      5        4     5    2    3
+287  17    4    3          1         3        0      4        4     3    1    3
+288  19    1    1          3         1        1      4        4     4    3    3
+289  18    3    3          1         2        0      5        3     4    1    1
+290  17    4    4          2         2        0      4        3     3    1    2
+291  17    3    2          2         2        0      1        2     3    1    2
+292  18    1    1          2         1        0      3        3     2    1    2
+293  18    1    1          2         3        0      5        3     2    1    1
+294  18    3    3          2         2        0      4        3     2    1    3
+295  17    4    4          1         2        0      2        3     4    1    1
+296  17    1    2          2         2        0      3        2     2    1    2
+297  18    1    3          2         2        0      3        3     4    2    4
+298  18    4    4          2         3        0      4        2     2    2    2
+299  17    1    1          3         1        1      5        2     1    1    2
+300  18    2    3          2         1        0      5        2     3    1    2
+301  18    4    4          3         2        0      3        2     2    4    2
+302  18    1    2          3         1        0      4        3     3    2    3
+303  17    2    2          1         3        0      3        4     3    1    1
+304  17    1    2          1         1        0      3        5     5    1    3
+305  18    4    4          2         3        0      5        4     4    1    1
+306  18    1    1          4         3        0      4        3     2    1    2
+307  18    4    4          1         2        0      5        4     3    3    4
+308  18    3    3          1         2        0      4        1     3    1    2
+309  17    3    1          1         2        0      4        5     4    2    3
+310  18    4    4          1         2        0      3        2     4    1    4
+311  18    2    1          2         1        0      4        4     3    1    3
+312  17    2    3          2         2        0      4        4     3    1    1
+313  19    1    1          2         1        1      4        3     2    1    3
+314  18    4    2          2         1        1      5        4     3    4    3
+315  18    2    2          2         3        0      5        3     3    1    3
+316  18    4    4          3         1        0      4        4     3    2    2
+317  19    2    3          1         3        1      5        4     2    1    2
+318  18    3    1          1         2        0      4        3     4    1    1
+319  17    3    1          2         1        0      2        4     5    3    4
+320  18    3    2          3         1        0      4        4     1    3    4
+    health absences.x G1.x G2.x G3.x absences.y G1.y G2.y G3.y
+1        3          6    5    6    6          4    0   11   11
+2        3          4    5    5    6          2    9   11   11
+3        5          2   15   14   15          0   14   14   14
+4        5          4    6   10   10          0   11   13   13
+5        5         10   15   15   15          6   12   12   13
+6        3          0   12   12   11          0   13   12   13
+7        1          6    6    5    6          2   10   13   13
+8        1          0   16   18   19          0   15   16   17
+9        5          0   14   15   15          0   12   12   13
+10       2          0   10    8    9          2   14   14   14
+11       4          4   10   12   12          0   10   12   13
+12       5          2   14   14   14          0   12   13   12
+13       3          2   10   10   11          0   12   12   13
+14       3          0   14   16   16          0   14   14   15
+15       2          4   14   14   14          6   17   17   17
+16       2          6   13   14   14         10   13   13   14
+17       4          4    8   10   10          2   13   14   14
+18       5         16    6    5    5          2    8    8    7
+19       5          4    8   10   10          6   12   12   12
+20       1          0   13   14   15          0   12   13   14
+21       5          0   12   15   15          0   11   12   12
+22       5          2   15   15   16          0   12   13   14
+23       5          0   13   13   12          2   10   10   10
+24       5          2   10    9    8          2   10   11   10
+25       5          2   12   12   11          8   11   12   12
+26       1          4   15   16   15          0   11   11   11
+27       5          4   11   11   11          2   12   12   13
+28       5         16   10   12   11          4   12   11   12
+29       5          0    9   11   12          0   10   11   11
+30       5          0   17   16   17          2   15   15   15
+31       5          0   17   16   16          0   13   14   15
+32       2          0    8   10   12          0   13   12   12
+33       5          0   12   14   15          4   12   12   12
+34       5          0    8    7    6          4   11   11   11
+35       4          2   15   16   18          0   14   14   14
+36       5          7   15   16   15          4   13   13   13
+37       5          2   12   12   11          2   11   12   12
+38       2          8   14   13   13          8   14   13   12
+39       5          8   12   12   12          8   10   11   11
+40       5          2   19   18   18          0   14   15   15
+41       1          0    8    8   11          0    9   10   10
+42       5         14   10   10    9         14   10   11   11
+43       5          8    8    8    6          4   10   11   11
+44       3         12   11   12   11          6   13   12   13
+45       2          4   19   19   20          2   17   17   17
+46       5          2   15   15   14          4   11   12   13
+47       4          2   12   13   13          0   14   13   13
+48       5          2   11   13   13          0   16   14   16
+49       5          0    8   10   11          0   13   12   12
+50       1          6   10   13   13          0   13   12   13
+51       2          8    8    9   10          2   12   13   12
+52       1          0   14   15   15          0   15   14   15
+53       5          4   14   15   15          8   15   15   16
+54       5          2    9   10    9          0   14   13   14
+55       5          2   15   16   16          2   16   15   16
+56       4          6   10   11   11          0   17   16   16
+57       5          6   10    8   11          0   10   10   16
+58       1          4    8   10    9          0   13   13   10
+59       4          2   10    9    9          0   14   13   13
+60       2          0   10   10   10          0   13   12   12
+61       1          2   16   15   15          2   16   15   16
+62       3          4   13   13   12          0   11   12   12
+63       5          4    7    7    6          0   10    9   10
+64       4          2    8    9    8          0   11   10   11
+65       3         12   16   16   16          6   15   15   15
+66       5          0   13   15   15          2   13   11   11
+67       3          0   10   10   10          0   11    9   10
+68       5          2   12   12   14          0   13   13   14
+69       5         54   11   12   11          4   11   11   11
+70       5          6    9    9   10          0   11   11   11
+71       1          8   11   11   10          0   12   11   11
+72       3          0   11   11   11          1   13   13   13
+73       3          2    8    8   10          0    9    9   10
+74       3         12    5    5    5         14   12   11   11
+75       3          2   10   12   12          0   11   11   12
+76       5          4   11   10   11          2   10    9    9
+77       5         10    7    6    6          4   12   11   11
+78       4          4   15   15   15          2   13   12   13
+79       4          2    9   10   10          2   13   12   12
+80       2          4    8    7    6          6   13   11   11
+81       1          4   13   14   14          4   15   15   15
+82       5         18    8    6    7          6    9    9   10
+83       4          0    7    7    8          2    9   11   11
+84       1          4   16   17   18          6   14   13   13
+85       2          4    7    6    6          0   12   13   12
+86       1          0   11   10   10          2   13   14   14
+87       4          6   11   13   14          2   11   12   12
+88       4          2   11   15   15          6    9   11   11
+89       5          2    8    9   10          0   13   12   12
+90       1          6   11   14   14          4   12   13   13
+91       3          0    7    9    8          2   12   13   13
+92       4         14    7    7    5         12    9    9    8
+93       4          0   16   17   17          0   16   16   16
+94       5          4   10   13   14          2   12   13   12
+95       2         26    7    6    6         16   11   10   10
+96       1          0   16   18   18          0   16   16   16
+97       4         10   10   11   11         10   10   10   10
+98       3          8    7    8    8          4   10   10   10
+99       5          2   16   18   18          4   13   14   14
+100      1          6   10   13   13          8   12   10   11
+101      4          4   14   15   16          2   15   15   14
+102      4          6   18   19   19          4   13   14   14
+103      5          6   10   13   13         12    8   10   10
+104      3         10   18   19   19         10   18   17   18
+105      5          8    9    9    9          4   10    9   10
+106      5          2   15   15   16          6   16   14   14
+107      2          2   11   13   14          4   16   15   16
+108      5          0   13   14   13          6   14   14   15
+109      5         20    9    7    8         14   12   11   11
+110      4          6   14   13   13          2   14   13   14
+111      1          2   16   15   15          0   14   14   14
+112      5          6   16   14   15          6   14   13   13
+113      5          2   13   13   13          2   14   12   13
+114      5         18   14   11   13          4   12   13   13
+115      5          0    8    7    8          0   12   11   11
+116      5          0   13   13   12          2    9    9    9
+117      1          0    7   10   11          0   10   11   11
+118      4          8   18   18   18          8   14   14   15
+119      4          0    8    0    0          6   11   12   13
+120      5         12   10   13   12          2   13   12   12
+121      5         16   12   11   11         12   15   13   14
+122      5          0    9    0    0          2   12   11   11
+123      5          0   11    0    0          4   13   14   15
+124      5          0   10    0    0          2   10    9   10
+125      5          0   16   16   15          6   13   14   14
+126      3          0    7    9    0          6    9   11   11
+127      5          2    9   11   11          2   13   13   13
+128      1          2   14   14   13          4   10   11   11
+129      5          0    8   11   11          0   12   12   12
+130      5          2   10   11   11          6   13   12   13
+131      5          0    7    6    0         16    9    9    8
+132      5          6   12   13   14          6    9   10   10
+133      4          0   11   11   12          0   13   13   13
+134      1          2   11    8    8          0    7    8    8
+135      4          6    9    8   10          6   11   10   11
+136      3          2   17   15   15          4   12   10   11
+137      5          4   10   12   12          0   10   10    1
+138      4          4   10   10   10          0    9   10   11
+139      3          0   14   15   16          0   17   17   18
+140      4          0    6    7    0          0   12   12   13
+141      3          0   14   14   14          0   16   16   17
+142      3          2   13   15   16          0   16   17   18
+143      5          0   13   11   10          0   11    9   10
+144      4          4   10   11    9          0   14   14   15
+145      4          4   10    9    9          0   10   11   11
+146      5          2   13   13   11          0   13   12   14
+147      4          4    6    5    6          4   11    9   10
+148      3         10   10    8    9          8   10    9   11
+149      2          4   10   10   11          4   11   11   13
+150      3         10    9    8    8          4   11   10   11
+151      3          2   12   13   12          0   11   12   13
+152      5          0   16   17   17          0   17   18   17
+153      1         56    9    9    8         32   14   13   14
+154      1         14   12   13   12          8   14   15   16
+155      4         12   12   12   11          6   11   13   14
+156      3          2   11   12   11          0   10    9   11
+157      5          0   15   15   15          0   13   14   16
+158      3          6    8    7    9         10   12   13   14
+159      3          4    8    9   10          6    9    9   10
+160      2         10   11   12   13          6   12   12   13
+161      3          0    8    8    9          0   12   11   12
+162      5         12    7    8    8         16   10   11   12
+163      5          8    8    9   10          0   11   10   10
+164      3          0   13   14   14          0   13   12   12
+165      5          0   14   15   15          8   14   15   16
+166      5          4   17   15   16          4   13   13   14
+167      3          8    9    9   10         16   10   11   12
+168      2         24   18   18   18         30   14   15   16
+169      3          0    9    9   10          0   11   10   11
+170      2          2   16   16   16          2   14   14   15
+171      4          6    8   10   10          4   11   12   12
+172      1          4    9    9   10          0   14   15   15
+173      3         18    7    6    6         21   13   13   13
+174      5          6   10   10   11          6   13   13   13
+175      5         28   10    9    9         14    8    9    8
+176      1         10   11   12   13          4   14   15   15
+177      5          6    9    9   10          2   12   13   13
+178      4          6    7    7    7          0   11   12   12
+179      3         10    8    8    8          4   12   12   12
+180      3         13   12   12   13         15   13   12   12
+181      4          0   12   13   14          0   13   13   13
+182      3         12    8   10   10          6   12   11   11
+183      1          2   14   15   15          2   14   16   15
+184      3          3    7    7    8          4   12   13   13
+185      4          4    9   10   10          0   12   12   13
+186      5          2    6    6    6          0   11   10   11
+187      3          2   16   16   17          0   13   13   14
+188      5          0   13   13   14          4   15   16   16
+189      3         10   16   15   15          2   17   18   17
+190      3          2   12   11   12          0   10   11   11
+191      3         14   10    8    9          2    9   10   11
+192      3         10   12   10   12          0   15   15   16
+193      3         14   13   13   14          0   14   12   12
+194      1          4   11   11   11          0   12   13   13
+195      2         14   11    9    9          0   13   13   13
+196      1          2   14   13   13          0   13   13   14
+197      5         18    9    7    6          2    9    9    9
+198      2         10   11    9   10          0   12   12   12
+199      4          4   14   13   13          0   16   16   16
+200      5         20   13   12   12          4    9   10   10
+201      3          2   13   11   11          2   13   13   13
+202      5         14   12   12   12          8   15   15   15
+203      4          2   10   11   12          0   12   12   12
+204      3          0    6    0    0          7   14   14   15
+205      5          0   13   12   12          4   14   15   15
+206      3          0    7    0    0         10   12   10   11
+207      4          6   18   18   18          7   15   16   16
+208      2          4   12   12   13          2    9   12   13
+209      1         16    6    8    8         12    7    8    5
+210      5          0   13   15   15          0   11   12   11
+211      3          0    8    9    8          2   14   13   12
+212      5          0    8   12   12          0   12   12   13
+213      5          2    7    9    8          0    9   10   10
+214      4          6   14   12   13          2   14   15   17
+215      1         12   11   11   11          4   11   13   14
+216      4          8   15   14   14          2   16   16   16
+217      2          0   10    9    0          2   10   11   12
+218      2         21   17   18   18          2   15   15   15
+219      3          2    8    8    8          2   10   10   11
+220      3          1   13   12   12          2   10   11   12
+221      4          4   10    9    9          2   15   12   13
+222      3          0    9   10    0          0   11   12   13
+223      1         13   17   17   17          6   15   16   16
+224      5          2    9    9   10          0   11   11   14
+225      4          8   12   10   11          8   10   11   12
+226      5         10   10    9   10          4   10   12   14
+227      3          0    6    0    0         12    8    9   10
+228      2          4   15   14   14         10   16   16   16
+229      3          2   11   11   11          2   13   13   13
+230      1          2   15   14   14          2   16   17   18
+231      1          2   10   10   10          6   15   16   16
+232      5          6   12   12   12          6   12   12   12
+233      5         75   10    9    9         15   12    9   10
+234      3         22    9    9    9          6   11   12   12
+235      4         15    9    8    8          2   14   12   13
+236      1          8   10   11   10          0   10   10   10
+237      5         30    8    8    8         22   11   11   10
+238      3          1   12   12   12          2   17   17   18
+239      4          4    8    9   10          0   12   13   13
+240      5          4   10    9   11         12   12   12   14
+241      4          2   12   10   11          0   12   12   12
+242      2          5   18   18   19          0   18   18   18
+243      3          6   13   12   12          0   13   13   14
+244      2          6   15   14   14          0   14   15   15
+245      2          9   15   13   15          0   17   17   17
+246      5         11   12   11   11          2   15   16   16
+247      3          0   15   15   15          0   17   18   18
+248      3          6   18   18   18          0   18   19   19
+249      4          8   14   13   14          0   14   15   15
+250      5          4   14   12   11          0   14   15   15
+251      2          0   10    9    0          2   14   13   13
+252      2         10   10    8    8          0   13   14   14
+253      3          0   14   13   14          0   16   17   17
+254      1          5   16   15   16          0   18   18   17
+255      4         14   12   10   11          0   14   15   15
+256      5          0   11   11   10          0   12   13   13
+257      3          0   15   12   14          0   16   16   16
+258      5          0   17   17   18          0   18   18   18
+259      1          0    8    8    0          2   12   12   15
+260      5          9    9   10    9          2   14   15   17
+261      5          0   11   11   10          2   15   15   17
+262      5          2   11   11   11          0   12   11   13
+263      5         23   13   13   13         14   15   14   17
+264      3         12   11    9    9          4   14   13   13
+265      3          3   11   11   11          0   11   11   10
+266      5          1   12   14   15          0   17   18   17
+267      2          0   16   15   15          0   14   14   15
+268      3          3    9   12   11          0   13   14   13
+269      5          3   14   15   16          0   17   18   17
+270      4          8   11   10   10          2   11   10   10
+271      4          7   10    9    9          0   13   12   13
+272      4          4   14   14   14          4   15   14   15
+273      5          2    9    8    8          0   11   11   12
+274      5          7   12   14   14          0   15   15   15
+275      4          0    7    0    0          8   10   11   12
+276      2          0    8    8    0          0   10    9   12
+277      4          0   10    9    0          6   14   13   14
+278      5         16   16   15   15          8   11   13   14
+279      2          0    7    8    0          0   12   13   15
+280      1          7   16   15   17          4   14   14   15
+281      2          4    9   10   10          0   14   14   16
+282      5         11   16   15   15          6   16   16   17
+283      3          4   11   10   10          0   11   12   14
+284      1          7   13   13   14          4   14   16   17
+285      4          9   16   15   16          4   15   14   17
+286      5          0   10   10    9          0   14   13   14
+287      4          0   13   15   15          0   11   12   13
+288      5          4    8    8    8          4    8    9   10
+289      5          0   10    9    9          0   10   10   10
+290      5          4   12   13   13          2   12   12   12
+291      5          2   12   12   11          0   15   14   15
+292      3          4   10   10   10          2   14   13   14
+293      4          0   18   16   16          0   19   17   18
+294      3          0   11   11   10          6   13   12   13
+295      1          0   16   15   15          4   15   14   15
+296      3          0   12   11   12          0   13   13   13
+297      3          4   10   10   10          0    8   10    9
+298      5          0   13   13   13          0   15   16   16
+299      1          0    7    6    0          0    8    8    9
+300      4          0   11   10   10          0   10   10   10
+301      5         10   14   12   11          0    7    5    0
+302      3          3   14   12   12          3    9   10   10
+303      3          8   13   11   11          8   10   11   12
+304      1         14    6    5    5          4    7    8    9
+305      1          0   19   18   19          0   15   17   17
+306      4          2    8    8   10          4   10   11   12
+307      2          4    8    9   10          1   13   14   14
+308      1          0   15   15   15          1   16   16   16
+309      1         17   10   10   10         10    8    9    9
+310      2          4   15   14   14          4   17   18   19
+311      5          5    7    6    7          0    7    7    0
+312      3          2   11   11   10          4   14   15   16
+313      5          0    6    5    0          0    5    8    0
+314      3         14    6    5    5          0    7    7    0
+315      4          2   10    9   10          0   14   17   15
+316      5          7    6    5    6          4    7    9   10
+317      5          0    7    5    0          4   10   11   10
+318      1          0    7    9    8          4   15   15   16
+319      2          3   14   16   16          6   10   10   10
+320      5          0   11   12   10          4   10   11   11</code></pre>
+</div>
+</div>
+<p>Creating a correlation matrix between all numeric variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="ot">&lt;-</span> <span class="fu">cor</span>(numeric_variables)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>correlation_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    age         Medu         Fedu   traveltime    studytime
+age         1.000000000 -0.100949786 -0.107245313  0.160281754  0.043881028
+Medu       -0.100949786  1.000000000  0.621523869 -0.218794954  0.045425978
+Fedu       -0.107245313  0.621523869  1.000000000 -0.193978042 -0.039289626
+traveltime  0.160281754 -0.218794954 -0.193978042  1.000000000 -0.103243249
+studytime   0.043881028  0.045425978 -0.039289626 -0.103243249  1.000000000
+failures    0.243429617 -0.125608045 -0.157496645  0.104521138 -0.179515785
+famrel      0.049940980 -0.067657746 -0.047260992 -0.027275744  0.001381660
+freetime   -0.045824466  0.004013326 -0.001258667 -0.055899592 -0.091829632
+goout       0.150794790  0.065832096  0.050593936  0.006559725 -0.009403345
+Dalc        0.113952023  0.062866542  0.039126588  0.161272613 -0.172278644
+Walc        0.156817685 -0.004099434  0.023315814  0.105381347 -0.232402574
+health     -0.113225976 -0.011497172  0.067152933  0.020869407 -0.040979063
+absences.x  0.143925170  0.099832689  0.024617771 -0.001464243 -0.082387919
+G1.x       -0.110379348  0.193071603  0.175557917 -0.088080745  0.125691378
+G2.x       -0.186187399  0.188735230  0.150418214 -0.184594967  0.089030600
+G3.x       -0.206031862  0.187754424  0.141990610 -0.165110961  0.045402243
+absences.y  0.047331821  0.063530536  0.086614161  0.054308059 -0.134969383
+G1.y       -0.050549678  0.181423706  0.115531025 -0.178191662  0.229739293
+G2.y        0.029366456  0.189642017  0.136994424 -0.179611557  0.231059730
+G3.y       -0.009103257  0.158979933  0.107807478 -0.153616466  0.238553746
+              failures      famrel     freetime        goout        Dalc
+age         0.24342962  0.04994098 -0.045824466  0.150794790  0.11395202
+Medu       -0.12560804 -0.06765775  0.004013326  0.065832096  0.06286654
+Fedu       -0.15749664 -0.04726099 -0.001258667  0.050593936  0.03912659
+traveltime  0.10452114 -0.02727574 -0.055899592  0.006559725  0.16127261
+studytime  -0.17951579  0.00138166 -0.091829632 -0.009403345 -0.17227864
+failures    1.00000000  0.09437401  0.089757964  0.097119445  0.16213974
+famrel      0.09437401  1.00000000  0.090946059  0.033058834 -0.05737989
+freetime    0.08975796  0.09094606  1.000000000  0.243271162  0.20497133
+goout       0.09711944  0.03305883  0.243271162  1.000000000  0.25703214
+Dalc        0.16213974 -0.05737989  0.204971335  0.257032140  1.00000000
+Walc        0.16736348 -0.12634267  0.119021094  0.378591514  0.64989386
+health      0.04225577  0.13959656  0.070864701 -0.049000564  0.05996329
+absences.x  0.12006863 -0.04806901 -0.046300383  0.078848996  0.15159884
+G1.x       -0.19581035 -0.05618075 -0.017100766 -0.115882796 -0.09641793
+G2.x       -0.16669179 -0.08710139 -0.029677027 -0.158978350 -0.05916707
+G3.x       -0.14303203 -0.01797570 -0.006516202 -0.118423233 -0.04696434
+absences.y  0.13424264 -0.02955203 -0.011429255  0.128521823  0.10753855
+G1.y       -0.26927657 -0.06419546 -0.085629896 -0.071905764 -0.23398211
+G2.y       -0.26992597 -0.02441686 -0.087231866 -0.091151551 -0.25300707
+G3.y       -0.32775690 -0.01282948 -0.110638817 -0.073423265 -0.27992305
+                   Walc       health   absences.x        G1.x        G2.x
+age         0.156817685 -0.113225976  0.143925170 -0.11037935 -0.18618740
+Medu       -0.004099434 -0.011497172  0.099832689  0.19307160  0.18873523
+Fedu        0.023315814  0.067152933  0.024617771  0.17555792  0.15041821
+traveltime  0.105381347  0.020869407 -0.001464243 -0.08808075 -0.18459497
+studytime  -0.232402574 -0.040979063 -0.082387919  0.12569138  0.08903060
+failures    0.167363479  0.042255769  0.120068630 -0.19581035 -0.16669179
+famrel     -0.126342672  0.139596565 -0.048069014 -0.05618075 -0.08710139
+freetime    0.119021094  0.070864701 -0.046300383 -0.01710077 -0.02967703
+goout       0.378591514 -0.049000564  0.078848996 -0.11588280 -0.15897835
+Dalc        0.649893859  0.059963287  0.151598836 -0.09641793 -0.05916707
+Walc        1.000000000  0.070450703  0.208026186 -0.07964360 -0.06540510
+health      0.070450703  1.000000000  0.012122515 -0.06155381 -0.07666718
+absences.x  0.208026186  0.012122515  1.000000000 -0.06946116 -0.07580245
+G1.x       -0.079643599 -0.061553810 -0.069461164  1.00000000  0.86588796
+G2.x       -0.065405098 -0.076667185 -0.075802450  0.86588796  1.00000000
+G3.x       -0.027623053 -0.047513775 -0.028118470  0.81859418  0.91357599
+absences.y  0.150366322 -0.001077612  0.563815592 -0.08760610 -0.12636236
+G1.y       -0.158160549 -0.126244006 -0.092477610  0.59293522  0.54300736
+G2.y       -0.183295800 -0.170419288 -0.145164017  0.59517224  0.56521350
+G3.y       -0.182606733 -0.162249671 -0.135726385  0.54388734  0.49603265
+                   G3.x   absences.y        G1.y        G2.y         G3.y
+age        -0.206031862  0.047331821 -0.05054968  0.02936646 -0.009103257
+Medu        0.187754424  0.063530536  0.18142371  0.18964202  0.158979933
+Fedu        0.141990610  0.086614161  0.11553102  0.13699442  0.107807478
+traveltime -0.165110961  0.054308059 -0.17819166 -0.17961156 -0.153616466
+studytime   0.045402243 -0.134969383  0.22973929  0.23105973  0.238553746
+failures   -0.143032028  0.134242644 -0.26927657 -0.26992597 -0.327756897
+famrel     -0.017975700 -0.029552034 -0.06419546 -0.02441686 -0.012829483
+freetime   -0.006516202 -0.011429255 -0.08562990 -0.08723187 -0.110638817
+goout      -0.118423233  0.128521823 -0.07190576 -0.09115155 -0.073423265
+Dalc       -0.046964337  0.107538550 -0.23398211 -0.25300707 -0.279923052
+Walc       -0.027623053  0.150366322 -0.15816055 -0.18329580 -0.182606733
+health     -0.047513775 -0.001077612 -0.12624401 -0.17041929 -0.162249671
+absences.x -0.028118470  0.563815592 -0.09247761 -0.14516402 -0.135726385
+G1.x        0.818594184 -0.087606100  0.59293522  0.59517224  0.543887345
+G2.x        0.913575991 -0.126362360  0.54300736  0.56521350  0.496032649
+G3.x        1.000000000 -0.116640460  0.52288461  0.54545279  0.475956497
+absences.y -0.116640460  1.000000000 -0.09864117 -0.12070727 -0.071452010
+G1.y        0.522884610 -0.098641173  1.00000000  0.88415041  0.825414320
+G2.y        0.545452789 -0.120707273  0.88415041  1.00000000  0.894309821
+G3.y        0.475956497 -0.071452010  0.82541432  0.89430982  1.000000000</code></pre>
+</div>
+</div>
+<p><strong>Histogram of Age by Sex</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>histogram_age <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(exercise_combine, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> sex)) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram of Age by Sex"</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>histogram_age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The data looks pretty evenly split for ages/sex based on this histogram. There are definitely more females age 17. The oldest person is a male, which looks to be an outlier which is interesting. I wonder what this 22 year old is doing.</p>
+<p><strong>Age Kernel Density Plot</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>kernel_age <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(exercise_combine, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="fu">aes</span>(<span class="at">fill =</span> sex)) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Kernel Density Plot of Age by Sex"</span>)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>kernel_age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>It is very interesting that the female density plot has so many sharp ups and downs. The male data does the same, but not nearly as sharply as the female data. The density goes to 0 as very similar ages for both sexes.</p>
+<p><strong>Age Boxplot</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>boxplot_age <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(exercise_combine, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> age, <span class="at">fill =</span> sex)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boxplot of Age by Sex"</span>, <span class="at">x =</span> <span class="st">"Sex"</span>, <span class="at">y =</span> <span class="st">"Age"</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>boxplot_age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see from this boxplot that males have a larger spread of age compared to females. It is interesting that the female box is so compact compared to the male box. It is also interesting that males have a very large age outlier.</p>
+<p><strong>Histogram of Absences by Sex</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>histogram_absences <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(exercise_combine, <span class="fu">aes</span>(<span class="at">x =</span> absences.x)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> sex)) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histogram of Absences by Sex"</span>, <span class="at">x =</span> <span class="st">"Absences"</span>)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>histogram_absences</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This histogram plot is very different from the other histogram. It looks like there are more females who had 0-3 absences. There are a few females who had rougly 55 absences and 75 absences. This number is crazy to me. I wonder why they missed so many days?</p>
+<p><strong>Kernel Density Plot of Absences by Sex</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>kernel_absences <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(exercise_combine, <span class="fu">aes</span>(<span class="at">x =</span> absences.x)) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="fu">aes</span>(<span class="at">fill =</span> sex)) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Kernel Density Plot of Absences by Sex"</span>, <span class="at">x =</span> <span class="st">"Absences"</span>)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>kernel_absences</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The kernel density plot is very similar for both sexes. It looks like females have a couple of points where the density goes up and then back down. For the most part, the density for the males is pretty flat at 0.</p>
+<p><strong>Boxplot of Absences by Sex</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>boxplot_absences <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(exercise_combine, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> absences.x, <span class="at">fill =</span> sex)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boxplot of Absences by Sex"</span>, <span class="at">x =</span> <span class="st">"Sex"</span>, <span class="at">y =</span> <span class="st">"Absences"</span>)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>boxplot_absences</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Males have a very similar median absences when compared to females. Females have a lot of outliers, while males only have 3 outliers. The boxes themselves actually look very similar.</p>
+<p><strong>Scatterplots relating G3 variable to other numeric variables</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>scatterplot_G3_age <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(exercise_combine, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> G3.x, <span class="at">color =</span> sex)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatterplot of G3 and Age by Sex"</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"G3"</span>)</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>scatterplot_G3_age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>From this graph we can see that younger males (15-16) tend to score the highest compared to females. For ages 17-18 however, females tend to score the highest. There are a few age outliers for men. It looks like there is a good mix of sexes for scores of about 7-15.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>scatterplot_G3_failures <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(exercise_combine, <span class="fu">aes</span>(<span class="at">x =</span> failures, <span class="at">y =</span> G3.x, <span class="at">color =</span> school)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatterplot of G3 and Failures by School"</span>, <span class="at">x =</span> <span class="st">"Failures"</span>, <span class="at">y =</span> <span class="st">"G3"</span>)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>scatterplot_G3_failures</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>GP has multiple students that had 3 failures, while MS does not have any. A majority of students from MS do not have any failures, while there are 8 students who failed once. A large proportion of GP students never failed, but there are about 14 who failed once.</p>
+<p><strong>Repeating the scatter plots but using faceting for another categorical variable</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>G3_age_facet <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(exercise_combine, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> G3.x, <span class="at">color =</span> sex)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatterplot of G3 and Age by Sex Based on Internet Access"</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"G3"</span>) <span class="sc">+</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> internet)</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>G3_age_facet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>From this graph, it looks like there are slightly more females who do not have interet access compared to males. A majority of students do have internet access, however. It look like younger males with internet access did better than older males with internet access. Older females with internet access seemed to have higher scores than younger females.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>G3_failures_facet <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(exercise_combine, <span class="fu">aes</span>(<span class="at">x =</span> failures, <span class="at">y =</span> G3.x, <span class="at">color =</span> school)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatterplot of G3 and Failures by School Based on Family Size"</span>, <span class="at">x =</span> <span class="st">"Failures"</span>, <span class="at">y =</span> <span class="st">"G3"</span>) <span class="sc">+</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> famsize)</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>G3_failures_facet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There are a lot of students from GP who are in a family of greater than 3. There are more failures for people who have a family size greater than 3. For example, all of the students who failed 3 times are included in the family size greater than 3 category. MS had a relatively low fail rate based on this graph.</p>
+<p><strong>Repeating the scatter plots but using faceting for two categorical variables</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>G3_age_facet2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(exercise_combine, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> G3.x, <span class="at">color =</span> sex)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatterplot of G3 and Age by Sex Based on School and Internet Access"</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"G3"</span>) <span class="sc">+</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(internet), <span class="at">cols =</span> <span class="fu">vars</span>(school))</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>G3_age_facet2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A large portion of the data has internet access and goes to GP. Once again it looks like younger males hold the highest test scores compared to younger females. However, the females age 17-18 have the highest test scores. Ther are more females than males from GP who do not have internet access. I think this point is interesting because it makes me wonder why females have less access to internet.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>G3_failures_facet2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(exercise_combine, <span class="fu">aes</span>(<span class="at">x =</span> failures, <span class="at">y =</span> G3.x, <span class="at">color =</span> school)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatterplot of G3 and Failures by School and Activities"</span>, <span class="at">x =</span> <span class="st">"Failures"</span>, <span class="at">y =</span> <span class="st">"G3"</span>) <span class="sc">+</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(famsize), <span class="at">cols =</span> <span class="fu">vars</span>(activities))</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>G3_failures_facet2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Homework5_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There are a lot more data points for GP than MS. It looks like students that participate in activities have more failures when they have a family size greater than 3. A majority of students did not have any failures at all.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

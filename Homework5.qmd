@@ -1,3 +1,4 @@
+# Savannah Harrison - Homework 5
 
 ```{r}
 library(dplyr)
@@ -5,7 +6,10 @@ library(tidyverse)
 library(DBI)
 ```
 
+# Task 1: Read in the Data and Modify
+
 Reading in the data and combining the data frames using the code provided.
+
 ```{r}
 d1 =read.table("student-mat.csv",sep=";",header=TRUE)
 d2 =read.table("student-por.csv",sep=";",header=TRUE)
@@ -15,6 +19,7 @@ print(nrow(d3)) # 382 students
 ```
 
 Reading in the data and combining using functions from the tidyverse. It gives me a message "Warning: Detected an unexpected many-to-many relationship between `x` and `y`."
+
 ```{r}
 mat2 <- read.csv("student-mat.csv", sep = ";", header = TRUE)
 por2 <- read.csv("student-por.csv", sep = ";", header = TRUE)
@@ -22,13 +27,15 @@ por2 <- read.csv("student-por.csv", sep = ";", header = TRUE)
 combined <- inner_join(mat2, por2, by=c("school","sex","age","address","famsize","Pstatus","Medu","Fedu","Mjob","Fjob","reason","nursery","internet"))
 ```
 
-Using an inner_join() on all variables other than G1, G2, G3, paid, and absences. 
+Using an inner_join() on all variables other than G1, G2, G3, paid, and absences.
+
 ```{r}
 join_exclusions <- setdiff(colnames(mat2), c("G1", "G2", "G3", "paid", "absences"))
 exercise_combine <- inner_join(mat2, por2, by = join_exclusions)
 ```
 
 Next, for the math data, Portuguese, and combined data, choosing four categorical variables of interest and converting those into factor variables in each tibble using the mutate() function.
+
 ```{r}
 mat2 <- mat2 |>
   mutate(romantic = as.factor(romantic),
@@ -50,11 +57,13 @@ exercise_combine <- exercise_combine |>
 ```
 
 Looking at how the data is stored.
+
 ```{r}
 str(exercise_combine)
 ```
 
 Documenting missing values in the data.
+
 ```{r}
 sum_na <- function(column) {
   sum(is.na(column))
@@ -64,32 +73,40 @@ na_counts <- exercise_combine |>
 na_counts
 ```
 
+# Categorial Variables
+
 Creating a one-way contingency table. From this table we see that there are 221 people from the data set who are not in a romantic relationship, and 99 people who are.
+
 ```{r}
 one_way <- table(exercise_combine$romantic)
 one_way
 ```
 
-Creating a two-way contingency table. From this, we can see that 
+Creating a two-way contingency table. From this, we can see that there are 85 people who are not in a romantic relationship and chose their student's school based on it being close to home.
+
 ```{r}
 two_way <- table(exercise_combine$romantic, exercise_combine$reason)
 two_way
 ```
-Creating a three-way contigency table. From this we gather that 
+
+Creating a three-way contigency table. From this we gather that there are 5 fathers who are in romantic relationships and picked their student's school based on its reputation.
+
 ```{r}
 three_way <- table(exercise_combine$romantic, exercise_combine$reason, exercise_combine$guardian)
 three_way
 ```
 
-Creating a conditional two-way table using table() by subsetting the data by females and then creating the table.
-```{r}
-sex_filter <- filter(exercise_combine, sex == "F")
+Creating a conditional two-way table using table() by subsetting the data by females and then creating the table. We can see here that there are 16 females in the dataset that are in romantic relationships that chose their student's school based on its proximity to their home.
 
-female_table <- table(sex_filter$romantic, sex_filter$guardian)
+```{r}
+female_filter <- filter(exercise_combine, sex == "F")
+
+female_table <- table(female_filter$romantic, female_filter$reason)
 female_table
 ```
 
-Create a conditional two-way table using table() by creating a three-way table and subsetting it.
+Create a conditional two-way table using table() by creating a three-way table and subsetting it. From this we see that there are 47 mothers who aren't in romantic relationships and chose their student's school based on its reputation.
+
 ```{r}
 subset_table <- table(exercise_combine$romantic, exercise_combine$guardian, exercise_combine$reason)
 
@@ -97,7 +114,8 @@ filter_subset_table <- subset_table[,"mother",]
 filter_subset_table
 ```
 
-Creating a two-way contingency table using group_by() and summarize().
+Creating a two-way contingency table using group_by() and summarize(). There are 15 people who aren't in romantic relationships and chose their school based on a reason other than courses, proximity to home, and reputation.
+
 ```{r}
 exercise_combine |>
   group_by(romantic, reason) |>
@@ -105,19 +123,29 @@ exercise_combine |>
   summarize(count = n()) |>
   pivot_wider(names_from = reason, values_from = count)
 ```
+
 Create stacked bar graph.
+
 ```{r}
 stacked <- ggplot(data = exercise_combine |> drop_na(sex, famsup), aes(x = sex, fill = famsup)) 
 stacked + geom_bar() + labs(title = "Stacked Bar Graph of Family Educational Support by Sex", x = "Sex", y = "Family Educational Support")
 ```
 
+We can see from this graph that females receive more educational support from their family than males. There are more females than males included in the data.
+
 Create side-by-side bar graph
+
 ```{r}
 side <- ggplot(data = exercise_combine |> drop_na(school, reason), aes(x = school, fill = reason)) + geom_bar(position = "dodge") + labs( title = "Side-By-Side Bar Graph of Reason by School", x = "School", y = "Reason") + scale_fill_discrete("Reason")
 side
 ```
 
+We see from this graph that there are more people in the data who chose Gabriel Pereira (GP) than Mousinho da Silveira (MS). People were most likely to choose their school based on its course offerings for both schools. There is a greater proportion of people who chose their school based on its reputation for GP.
+
 # Numeric Variables (and across groups)
+
+Finding measures of center and spread of three variables (age, absences, G1)
+
 ```{r}
 exercise_combine |>
   summarize(mean_age = mean(age),
@@ -127,6 +155,8 @@ exercise_combine |>
             mean_G1 = mean(G1.x),
             median_G1 = median(G1.x))
 ```
+
+Doing the same thing, but subsetting the data this time.
 
 ```{r}
 exercise_combine |>
@@ -139,6 +169,9 @@ exercise_combine |>
             median_G1 = median(G1.x))
   
 ```
+
+Finding the measures of center and spread across a single grouping variable.
+
 ```{r}
 exercise_combine |>
   group_by(sex) |>
@@ -149,6 +182,8 @@ exercise_combine |>
             mean_G1 = mean(G3.x),
             median_G1 = median(G3.x))
 ```
+
+Finding the measures of center and spread across two grouping variables.
 
 ```{r}
 exercise_combine |>
@@ -161,83 +196,122 @@ exercise_combine |>
             median_G1 = median(G3.x))
 ```
 
+Subsetting the data for numeric variables only.
+
 ```{r}
 numeric_variables <- exercise_combine[, sapply(exercise_combine, is.numeric)]
 numeric_variables
 ```
+
+Creating a correlation matrix between all numeric variables.
 
 ```{r}
 correlation_matrix <- cor(numeric_variables)
 correlation_matrix
 ```
 
-Histogram of Age by Sex
+**Histogram of Age by Sex**
+
 ```{r}
 histogram_age <- ggplot(exercise_combine, aes(x = age)) + geom_histogram(aes(fill = sex)) + labs(title = "Histogram of Age by Sex")
 histogram_age
 ```
 
-Kernel density plot
+The data looks pretty evenly split for ages/sex based on this histogram. There are definitely more females age 17. The oldest person is a male, which looks to be an outlier which is interesting. I wonder what this 22 year old is doing.
+
+**Age Kernel Density Plot**
+
 ```{r}
 kernel_age <- ggplot(exercise_combine, aes(x = age)) + geom_density(alpha = 0.5, aes(fill = sex)) + labs(title = "Kernel Density Plot of Age by Sex")
 kernel_age
 ```
 
-Age boxplot
+It is very interesting that the female density plot has so many sharp ups and downs. The male data does the same, but not nearly as sharply as the female data. The density goes to 0 as very similar ages for both sexes.
+
+**Age Boxplot**
+
 ```{r}
 boxplot_age <- ggplot(exercise_combine, aes(x = sex, y = age, fill = sex)) + geom_boxplot() + labs(title = "Boxplot of Age by Sex", x = "Sex", y = "Age")
 boxplot_age
 ```
-Histogram of
+
+We can see from this boxplot that males have a larger spread of age compared to females. It is interesting that the female box is so compact compared to the male box. It is also interesting that males have a very large age outlier.
+
+**Histogram of Absences by Sex**
+
 ```{r}
-histogram_absences <- ggplot(exercise_combine, aes(x = absences.x)) + geom_histogram(aes(fill = sex)) + labs(title = "Histogram of Absences by Sex")
+histogram_absences <- ggplot(exercise_combine, aes(x = absences.x)) + geom_histogram(aes(fill = sex)) + labs(title = "Histogram of Absences by Sex", x = "Absences")
 histogram_absences
 ```
 
-Kernel Density Plot of 
+This histogram plot is very different from the other histogram. It looks like there are more females who had 0-3 absences. There are a few females who had rougly 55 absences and 75 absences. This number is crazy to me. I wonder why they missed so many days?
+
+**Kernel Density Plot of Absences by Sex**
+
 ```{r}
-kernel_absences <- ggplot(exercise_combine, aes(x = absences.x)) + geom_density(alpha = 0.5, aes(fill = sex)) + labs(title = "Kernel Density Plot of Absences by Sex")
+kernel_absences <- ggplot(exercise_combine, aes(x = absences.x)) + geom_density(alpha = 0.5, aes(fill = sex)) + labs(title = "Kernel Density Plot of Absences by Sex", x = "Absences")
 kernel_absences
 ```
 
-Boxplot of 
+The kernel density plot is very similar for both sexes. It looks like females have a couple of points where the density goes up and then back down. For the most part, the density for the males is pretty flat at 0.
+
+**Boxplot of Absences by Sex**
+
 ```{r}
 boxplot_absences <- ggplot(exercise_combine, aes(x = sex, y = absences.x, fill = sex)) + geom_boxplot() + labs(title = "Boxplot of Absences by Sex", x = "Sex", y = "Absences")
 boxplot_absences
 ```
 
-Scatterplot relating G3 variable to other numeric variables
+Males have a very similar median absences when compared to females. Females have a lot of outliers, while males only have 3 outliers. The boxes themselves actually look very similar.
+
+**Scatterplots relating G3 variable to other numeric variables**
+
 ```{r}
 scatterplot_G3_age <- ggplot(exercise_combine, aes(x = age, y = G3.x, color = sex)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Age by Sex", x = "Age", y = "G3")
 scatterplot_G3_age
 ```
+
+From this graph we can see that younger males (15-16) tend to score the highest compared to females. For ages 17-18 however, females tend to score the highest. There are a few age outliers for men. It looks like there is a good mix of sexes for scores of about 7-15.
 
 ```{r}
 scatterplot_G3_failures <- ggplot(exercise_combine, aes(x = failures, y = G3.x, color = school)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Failures by School", x = "Failures", y = "G3")
 scatterplot_G3_failures
 ```
 
+GP has multiple students that had 3 failures, while MS does not have any. A majority of students from MS do not have any failures, while there are 8 students who failed once. A large proportion of GP students never failed, but there are about 14 who failed once.
+
+**Repeating the scatter plots but using faceting for another categorical variable**
+
 ```{r}
-G3_age_facet <- ggplot(exercise_combine, aes(x = age, y = G3.x, color = sex)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Age by Sex", x = "Age", y = "G3") +
+G3_age_facet <- ggplot(exercise_combine, aes(x = age, y = G3.x, color = sex)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Age by Sex Based on Internet Access", x = "Age", y = "G3") +
   facet_wrap(~ internet)
 G3_age_facet
 ```
 
+From this graph, it looks like there are slightly more females who do not have interet access compared to males. A majority of students do have internet access, however. It look like younger males with internet access did better than older males with internet access. Older females with internet access seemed to have higher scores than younger females.
+
 ```{r}
-G3_failures_facet <- ggplot(exercise_combine, aes(x = failures, y = G3.x, color = school)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Failures by School", x = "Failures", y = "G3") +
+G3_failures_facet <- ggplot(exercise_combine, aes(x = failures, y = G3.x, color = school)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Failures by School Based on Family Size", x = "Failures", y = "G3") +
   facet_wrap(~ famsize)
 G3_failures_facet
 ```
 
+There are a lot of students from GP who are in a family of greater than 3. There are more failures for people who have a family size greater than 3. For example, all of the students who failed 3 times are included in the family size greater than 3 category. MS had a relatively low fail rate based on this graph.
+
+**Repeating the scatter plots but using faceting for two categorical variables**
+
 ```{r}
-G3_age_facet2 <- ggplot(exercise_combine, aes(x = age, y = G3.x, color = sex)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Age by Sex", x = "Age", y = "G3") +
+G3_age_facet2 <- ggplot(exercise_combine, aes(x = age, y = G3.x, color = sex)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Age by Sex Based on School and Internet Access", x = "Age", y = "G3") +
   facet_grid(rows = vars(internet), cols = vars(school))
 G3_age_facet2
 ```
 
+A large portion of the data has internet access and goes to GP. Once again it looks like younger males hold the highest test scores compared to younger females. However, the females age 17-18 have the highest test scores. Ther are more females than males from GP who do not have internet access. I think this point is interesting because it makes me wonder why females have less access to internet.
+
 ```{r}
-G3_failures_facet2 <- ggplot(exercise_combine, aes(x = failures, y = G3.x, color = school)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Failures by School", x = "Failures", y = "G3") +
+G3_failures_facet2 <- ggplot(exercise_combine, aes(x = failures, y = G3.x, color = school)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Failures by School and Activities", x = "Failures", y = "G3") +
   facet_grid(rows = vars(famsize), cols = vars(activities))
 G3_failures_facet2
 ```
 
+There are a lot more data points for GP than MS. It looks like students that participate in activities have more failures when they have a family size greater than 3. A majority of students did not have any failures at all.
