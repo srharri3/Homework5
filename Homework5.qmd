@@ -208,12 +208,36 @@ boxplot_absences
 
 Scatterplot relating G3 variable to other numeric variables
 ```{r}
-scatterplot_G3 <- ggplot(exercise_combine, aes(x = age, y = G3.x, color = sex)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Age by Sex", x = "Age", y = "G3")
-scatterplot_G3 
+scatterplot_G3_age <- ggplot(exercise_combine, aes(x = age, y = G3.x, color = sex)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Age by Sex", x = "Age", y = "G3")
+scatterplot_G3_age
 ```
 
 ```{r}
-scatterplot_G3 <- ggplot(exercise_combine, aes(x = failures, y = G3.x, color = school)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Failures by School", x = "Failures", y = "G3")
-scatterplot_G3 
+scatterplot_G3_failures <- ggplot(exercise_combine, aes(x = failures, y = G3.x, color = school)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Failures by School", x = "Failures", y = "G3")
+scatterplot_G3_failures
+```
+
+```{r}
+G3_age_facet <- ggplot(exercise_combine, aes(x = age, y = G3.x, color = sex)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Age by Sex", x = "Age", y = "G3") +
+  facet_wrap(~ internet)
+G3_age_facet
+```
+
+```{r}
+G3_failures_facet <- ggplot(exercise_combine, aes(x = failures, y = G3.x, color = school)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Failures by School", x = "Failures", y = "G3") +
+  facet_wrap(~ famsize)
+G3_failures_facet
+```
+
+```{r}
+G3_age_facet2 <- ggplot(exercise_combine, aes(x = age, y = G3.x, color = sex)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Age by Sex", x = "Age", y = "G3") +
+  facet_grid(rows = vars(internet), cols = vars(school))
+G3_age_facet2
+```
+
+```{r}
+G3_failures_facet2 <- ggplot(exercise_combine, aes(x = failures, y = G3.x, color = school)) + geom_point() + geom_jitter(width = 0.1, alpha = 0.3) + labs(title = "Scatterplot of G3 and Failures by School", x = "Failures", y = "G3") +
+  facet_grid(rows = vars(famsize), cols = vars(activities))
+G3_failures_facet2
 ```
 
